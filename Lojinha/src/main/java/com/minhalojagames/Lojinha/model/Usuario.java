@@ -1,4 +1,4 @@
-package org.generation.blogPessoal.model;
+package com.minhalojagames.Lojinha.model;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -26,9 +26,10 @@ public class Usuario {
 	@NotNull
 	@Size(min= 5, max =100)
 	private String senha;
+	
+	
+	
 
-	
-	
 	public long getId() {
 		return id;
 	}
@@ -59,5 +60,6 @@ public class Usuario {
 
 	public void setSenha(String senha) {
 		this.senha = senha;
-	}	
+	}
+	
 }
