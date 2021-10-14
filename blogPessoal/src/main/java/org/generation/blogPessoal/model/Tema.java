@@ -25,6 +25,7 @@ public class Tema {
 	@JsonIgnoreProperties("tema")
 	private List<Postagem> postagem;
 	
+	//encaps
 	public long getId() {
 		return id;
 	}
