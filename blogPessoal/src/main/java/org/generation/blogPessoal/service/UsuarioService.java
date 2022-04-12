@@ -13,6 +13,10 @@ import org.springframework.stereotype.Service;
 public class UsuarioService {
 	@Autowired
 	private UsuarioRepository repository;
+	
+	public Optional<Usuario> buscarUsuarioId(long id) {
+		return repository.findById(id);	
+	}
 
 	public Usuario CadastrarUsuario(Usuario usuario) {
 		BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
@@ -33,8 +37,10 @@ public class UsuarioService {
 				byte[] encodedAuth = Base64.encodeBase64(auth.getBytes(Charset.forName("US-ASCII")));
 				String authHeader = "Basic " + new String(encodedAuth);
 				user.get().setToken(authHeader);
-				
+				user.get().setId(usuario.get().getId());
 				user.get().setNome(usuario.get().getNome());
+				user.get().setFoto(usuario.get().getFoto());
+				user.get().setTipo(usuario.get().getTipo());
 				return user;
 			}
 		}
